@@ -1,0 +1,18 @@
+DROP TABLE Spot;
+DROP TABLE City;
+
+CREATE TABLE City (
+  CityID INT PRIMARY KEY
+);
+
+CREATE TABLE Spot (
+  SpotID INT PRIMARY KEY,
+  SpotName VARCHAR(30),
+  SpotAddr VARCHAR(50),
+  CityID INT,
+  CONSTRAINT spot_fk FOREIGN KEY (CityID) REFERENCES City (CityID)
+);
+
+
+
+
