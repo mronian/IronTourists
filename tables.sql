@@ -1,9 +1,11 @@
+DROP TABLE SpotFare;
+DROP TABLE Fare;
+DROP TABLE SpotType;
+DROP TABLE Type;
 DROP TABLE Spot;
 DROP TABLE City;
 DROP TABLE State;
 DROP TABLE Country;
-DROP TABLE Fare;
-DROP TABLE SpotFare;
 
 CREATE TABLE Country (
   CountryID INT PRIMARY KEY,
@@ -47,4 +49,16 @@ CREATE TABLE SpotFare (
   CONSTRAINT spotfare_fare_fk FOREIGN KEY (FareID) REFERENCES Fare (FareID)
 );
 
+CREATE TABLE Type (
+  TypeID INT PRIMARY KEY,
+  TypeName VARCHAR(30),
+  TypeDesc VARCHAR(50)
+);
 
+CREATE TABLE SpotType (
+  SpotID INT,
+  TypeID INT,
+  CONSTRAINT spottype_pk PRIMARY KEY (SpotID, TypeID),
+  CONSTRAINT spottype_spot_fk FOREIGN KEY (SpotID) REFERENCES Spot (SpotID),
+  CONSTRAINT spottype_type_fk FOREIGN KEY (TypeID) REFERENCES Type (TypeID)
+);
