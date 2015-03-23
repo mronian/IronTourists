@@ -1,3 +1,6 @@
+DROP TABLE HubSpotInfo;
+DROP TABLE Conveyance;
+DROP TABLE Hub;
 DROP TABLE SpotFare;
 DROP TABLE Fare;
 DROP TABLE SpotType;
@@ -61,4 +64,30 @@ CREATE TABLE SpotType (
   CONSTRAINT spottype_pk PRIMARY KEY (SpotID, TypeID),
   CONSTRAINT spottype_spot_fk FOREIGN KEY (SpotID) REFERENCES Spot (SpotID),
   CONSTRAINT spottype_type_fk FOREIGN KEY (TypeID) REFERENCES Type (TypeID)
+);
+
+CREATE TABLE Hub (
+  HubID INT, 
+  HubName VARCHAR(50),
+  HubAddress VARCHAR(200),
+  CityID INT,
+  CONSTRAINT hub_pk PRIMARY KEY (HubID), 
+  CONSTRAINT hub_city_fk FOREIGN KEY (CityID) REFERENCES City (CityID)
+);
+
+CREATE TABLE Conveyance (
+  ConID INT PRIMARY KEY,
+  ConName VARCHAR(30)
+);
+
+CREATE TABLE HubSpotInfo (
+  HubID INT,
+  SpotID INT,
+  ConID INT,
+  Time TIME,
+  Fare INT,
+  CONSTRAINT hubspotinfo_pk PRIMARY KEY (HubID, SpotID, ConID),
+  CONSTRAINT hsi_hub_fk FOREIGN KEY (HubID) REFERENCES Hub (HubID),
+  CONSTRAINT hsi_spot_fk FOREIGN KEY (SpotID) REFERENCES Spot (SpotID),
+  CONSTRAINT hsi_con_fk FOREIGN KEY (ConID) REFERENCES Conveyance (ConID)
 );
