@@ -110,3 +110,21 @@ end
 
 puts ()
 puts ()
+
+#hub
+i = 1
+j = 1
+while i <= numCity do
+  i_item = "INSERT INTO Hub values ( #{j}, '" + Faker::Address.city.tr('\'', '') + "', '" + Faker::Address.street_address.tr('\'', '') + "', #{i} );"
+  puts (i_item)
+  j += 1
+  i_item = "INSERT INTO Hub values ( #{j}, '" + Faker::Address.city.tr('\'', '') + "', '" + Faker::Address.street_address.tr('\'', '') + "', #{i} );"
+  puts (i_item)
+  j += 1
+  i += 1
+end  
+
+puts ()
+puts ()
+
+
