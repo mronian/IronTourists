@@ -50,3 +50,63 @@ end
 
 puts ()
 puts ()
+
+#fares
+
+numFares = 4
+i_item = "INSERT INTO Fare values ( 1, 'Children - below 18');"
+puts(i_item)
+i_item = "INSERT INTO Fare values ( 2, 'Adults - below 18');"
+puts(i_item)
+i_item = "INSERT INTO Fare values ( 3, 'Camera');"
+puts(i_item)
+i_item = "INSERT INTO Fare values ( 4, 'NRI');"
+puts(i_item)
+
+puts ()
+puts ()
+
+#spotfare
+i = 1
+while i <= numSpot do
+  j = 1
+  while j <= numFares do
+    i_item = "INSERT INTO SpotFare values (#{i}, #{j}, #{j*(1 + rand(100))});"
+    j += 1
+  end
+  i += 1
+end
+
+puts ()
+puts ()
+
+#type
+numTypes = 7
+i_item = "INSERT INTO Type values ( 1, 'Hill Stations');"
+puts(i_item)
+i_item = "INSERT INTO Type values ( 2, 'Zoo');"
+puts(i_item)
+i_item = "INSERT INTO Type values ( 3, 'Natural Parks');"
+puts(i_item)
+i_item = "INSERT INTO Type values ( 4, 'Museum');"
+puts(i_item)
+i_item = "INSERT INTO Type values ( 5, 'Temples');"
+puts(i_item)
+i_item = "INSERT INTO Type values ( 6, 'Beach');"
+puts(i_item)
+i_item = "INSERT INTO Type values ( 7, 'Hill Stations');"
+puts(i_item)
+
+puts ()
+puts ()
+
+#spotType
+i = 1
+while i <= numSpot do
+  i_item = "INSERT INTO SpotType values (#{i}, #{1 + rand(numTypes)});"
+  puts(i_item)
+  i += 1
+end
+
+puts ()
+puts ()

@@ -58,8 +58,7 @@ CREATE TABLE SpotFare (
 
 CREATE TABLE Type (
   TypeID INT PRIMARY KEY,
-  TypeName VARCHAR(30),
-  TypeDesc VARCHAR(50)
+  TypeName VARCHAR(30)
 );
 
 CREATE TABLE SpotType (
