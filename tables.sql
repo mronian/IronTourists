@@ -1,3 +1,7 @@
+DROP TABLE Restaurant;
+DROP TABLE RestaurantChain;
+DROP TABLE Hotel;
+DROP TABLE HotelChain;
 DROP TABLE HubSpotInfo;
 DROP TABLE Conveyance;
 DROP TABLE Hub;
@@ -90,4 +94,34 @@ CREATE TABLE HubSpotInfo (
   CONSTRAINT hsi_hub_fk FOREIGN KEY (HubID) REFERENCES Hub (HubID),
   CONSTRAINT hsi_spot_fk FOREIGN KEY (SpotID) REFERENCES Spot (SpotID),
   CONSTRAINT hsi_con_fk FOREIGN KEY (ConID) REFERENCES Conveyance (ConID)
+);
+
+CREATE TABLE HotelChain (
+  HChainID INT PRIMARY KEY,
+  HChainName VARCHAR(30)
+);  
+
+CREATE TABLE Hotel (
+  HotelID INT PRIMARY KEY,
+  HotelName VARCHAR(30),
+  HotelAddr VARCHAR(50),
+  CityID INT,
+  HChainID INT,
+  CONSTRAINT hotel_city_fk FOREIGN KEY (CityID) REFERENCES City (CityID),
+  CONSTRAINT hotel_hc_fk FOREIGN KEY (HChainID) REFERENCES HotelChain (HChainID)
+);
+
+CREATE TABLE RestaurantChain (
+  RChainID INT PRIMARY KEY,
+  RChainName VARCHAR(30)
+);  
+
+CREATE TABLE Restaurant (
+  ResID INT PRIMARY KEY,
+  ResName VARCHAR(30),
+  ResAddr VARCHAR(50),
+  CityID INT,
+  RChainID INT,
+  CONSTRAINT res_city_fk FOREIGN KEY (CityID) REFERENCES City (CityID),
+  CONSTRAINT res_rc_fk FOREIGN KEY (RChainID) REFERENCES RestaurantChain (RChainID)
 );
