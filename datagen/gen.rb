@@ -195,9 +195,9 @@ numR = 125;
 while i <= numR do
   p = rand(10)
   if p < 5
-    i_item = "INSERT INTO Restaurant values ( #{i}, '" + Faker::Name.last_name.tr('\'', '') + "', '" + Faker::Address.street_address.tr('\'', '') + "', #{1 + rand(numCity)}, #{1+rand(numRC)});"
+    i_item = "INSERT INTO Restaurant values ( #{i}, '" + Faker::Address.prefix + ' ' + Faker::Name.last_name.tr('\'', '') + "', '" + Faker::Address.street_address.tr('\'', '') + "', #{1 + rand(numCity)}, #{1+rand(numRC)});"
   else
-    i_item = "INSERT INTO Restaurant values ( #{i}, '" + Faker::Name.last_name.tr('\'', '') + "', '" + Faker::Address.street_address.tr('\'', '') + "', #{1 + rand(numCity)}, 0);"
+    i_item = "INSERT INTO Restaurant values ( #{i}, '" + Faker::Address.prefix + ' ' + Faker::Name.last_name.tr('\'', '') + "', '" + Faker::Address.street_address.tr('\'', '') + "', #{1 + rand(numCity)}, 0);"
   end  
   puts (i_item)
   i += 1
