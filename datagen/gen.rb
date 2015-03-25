@@ -127,4 +127,45 @@ end
 puts ()
 puts ()
 
+#conveyance
+numCons = 4
+i_item = "INSERT INTO Conveyance values ( 1, 'Bus');"
+puts(i_item)
+i_item = "INSERT INTO Conveyance values ( 2, 'Auto Rickshaw');"
+puts(i_item)
+i_item = "INSERT INTO Conveyance values ( 3, 'Walking');"
+puts(i_item)
+i_item = "INSERT INTO Conveyance values ( 4, 'Cycle Rickshaw');"
+puts(i_item)
+
+puts ()
+puts ()
+
+#hubspot info
+
+
+#hotel chains
+i = 1
+numHC = 10
+while i <= numHC do
+  i_item = "INSERT INTO HotelChain values ( #{i}, '" + Faker::Company.name + "');"
+  puts (i_item)
+  i += 1
+end  
+
+puts ()
+puts ()
+
+#hotels
+i = 1
+numH = 125;
+while i <= numH do
+  i_item = "INSERT INTO Hotel values ( #{i}, '" + 'Hotel ' + Faker::Name.last_name.tr('\'', '') + "', '" + Faker::Address.street_address.tr('\'', '') + "', #{1 + rand(numCity)}, #{1 + rand(numHC)});"
+  puts (i_item)
+  i += 1
+end  
+
+puts ()
+puts ()
+
 
