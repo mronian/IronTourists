@@ -145,10 +145,12 @@ puts ()
 
 
 #hotel chains
+i_item = "INSERT INTO HotelChain values ( 0, 'None');"
+puts (i_item)
 i = 1
 numHC = 10
 while i <= numHC do
-  i_item = "INSERT INTO HotelChain values ( #{i}, '" + Faker::Company.name + "');"
+  i_item = "INSERT INTO HotelChain values ( #{i}, '" + Faker::Company.name.tr('\'', '') + "');"
   puts (i_item)
   i += 1
 end  
@@ -160,7 +162,43 @@ puts ()
 i = 1
 numH = 125;
 while i <= numH do
-  i_item = "INSERT INTO Hotel values ( #{i}, '" + 'Hotel ' + Faker::Name.last_name.tr('\'', '') + "', '" + Faker::Address.street_address.tr('\'', '') + "', #{1 + rand(numCity)}, #{1 + rand(numHC)});"
+  p = rand(10)
+  if p < 5
+    i_item = "INSERT INTO Hotel values ( #{i}, '" + 'Hotel ' + Faker::Name.last_name.tr('\'', '') + "', '" + Faker::Address.street_address.tr('\'', '') + "', #{1 + rand(numCity)}, #{1+rand(numHC)});"
+  else
+    i_item = "INSERT INTO Hotel values ( #{i}, '" + 'Hotel ' + Faker::Name.last_name.tr('\'', '') + "', '" + Faker::Address.street_address.tr('\'', '') + "', #{1 + rand(numCity)}, 0);"
+  end  
+  puts (i_item)
+  i += 1
+end  
+
+puts ()
+puts ()
+
+#restaurant chains
+i_item = "INSERT INTO RestaurantChain values ( 0, 'None');"
+puts (i_item)
+i = 1
+numRC = 10
+while i <= numRC do
+  i_item = "INSERT INTO RestaurantChain values ( #{i}, '" + Faker::Company.name.tr('\'', '') + "');"
+  puts (i_item)
+  i += 1
+end  
+
+puts ()
+puts ()
+
+# Restaurants
+i = 1
+numR = 125;
+while i <= numR do
+  p = rand(10)
+  if p < 5
+    i_item = "INSERT INTO Restaurant values ( #{i}, '" + Faker::Name.last_name.tr('\'', '') + "', '" + Faker::Address.street_address.tr('\'', '') + "', #{1 + rand(numCity)}, #{1+rand(numRC)});"
+  else
+    i_item = "INSERT INTO Restaurant values ( #{i}, '" + Faker::Name.last_name.tr('\'', '') + "', '" + Faker::Address.street_address.tr('\'', '') + "', #{1 + rand(numCity)}, 0);"
+  end  
   puts (i_item)
   i += 1
 end  
