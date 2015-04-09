@@ -1,0 +1,22 @@
+INSERT INTO HotelChain VALUES (0,'None');
+INSERT INTO HotelChain VALUES (1,'Mariott India');
+INSERT INTO HotelChain VALUES (2,'ITC Hotels');
+INSERT INTO HotelChain VALUES (3,'The Leela Palaces Hotels and Resorts');
+INSERT INTO HotelChain VALUES (4,'Laxmi Vilas Group');
+INSERT INTO HotelChain VALUES (5,'Hotel Hindusthan International Group of Hotels');
+INSERT INTO HotelChain VALUES (6,'Taj Hotels, Resorts and Palaces');
+INSERT INTO HotelChain VALUES (7,'The Lalit');
+INSERT INTO HotelChain VALUES (8,'Radisson Hotels and Restaurents');
+INSERT INTO HotelChain VALUES (9,'Sheraton Hotels');
+INSERT INTO HotelChain VALUES (10,'Howard Park Plaza');
+INSERT INTO HotelChain VALUES (11,'LemonTree Hotels');
+INSERT INTO HotelChain VALUES (12,'The Residency Group of Hotels');
+INSERT INTO HotelChain VALUES (13,'Ginger Hotels');
+INSERT INTO HotelChain VALUES (14,'Ramada Asia-Pacific');
+INSERT INTO HotelChain VALUES (15,'The Park Hotels');
+INSERT INTO HotelChain VALUES (16,'Royal Orchid Hotels');
+INSERT INTO HotelChain VALUES (17,'Peppermint Hotels');
+INSERT INTO HotelChain VALUES (18,'Oberoi Hotels and Resorts');
+INSERT INTO HotelChain VALUES (19,'Ashok Group');
+INSERT INTO HotelChain values (20,'Le Meridian Group');
+
