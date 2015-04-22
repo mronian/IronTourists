@@ -2,6 +2,8 @@
 
 Indian Tourism Information System
 
+Contributors : Chander G, Pranay Yadav, Anchit Navelkar, Akash Mondal
+
 ##Introduction
 Our project is to build an Indian Tourism Information System. This is the requirement analysis for the topic.
 
