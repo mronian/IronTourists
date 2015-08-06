@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Wanderer by mronian</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Wanderer</h1>
+      <h2 class="project-tagline">Indian Tourism Information System</h2>
+      <a href="https://github.com/mronian/Wanderer" class="btn">View on GitHub</a>
+      <a href="https://github.com/mronian/Wanderer/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/mronian/Wanderer/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="wanderer" class="anchor" href="#wanderer" aria-hidden="true"><span class="octicon octicon-link"></span></a>Wanderer</h1>
+
+<p>Indian Tourism Information System</p>
+
+<p>Contributors : Chander G, Pranay Yadav, Anchit Navelkar, Akash Mondal</p>
+
+<h2>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
+
+<p>Our project is to build an Indian Tourism Information System. This is the requirement analysis for the topic.</p>
+
+<h2>
+<a id="assumptionsscope" class="anchor" href="#assumptionsscope" aria-hidden="true"><span class="octicon octicon-link"></span></a>Assumptions/Scope</h2>
+
+<p>This is an information management system, which means we only display information. There is no user input in form of ratings, reviews etc. Just a read only display.
+We do not consider travel between two cities as a part of our system. Information about trains, flights, buses or horseback between cities have it’s place in a travel system, not a tourism system. However we consider transport details between individual spots and local airports, stations, bus-stops well within the scope.
+As an addendum to the above point (2), we plan to have only approximate time-fare information between spots and hubs. This is explained in detail in this document.
+Though the system is primarily about India, it is not restricted to this.</p>
+
+<h2>
+<a id="organization" class="anchor" href="#organization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Organization</h2>
+
+<p>The following are the basic entities or units in the system.</p>
+
+<h5>
+<a id="1spots" class="anchor" href="#1spots" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.Spots</h5>
+
+<p>The central unit of tourism in our software. A single place you can visit. Sometimes a set of close-by places that are a part of the same cultural identity may be grouped into one spot. </p>
+
+<p>Spots are classified into types ( think Hindu temples, hill stations etc). We have travel details from hubs (see below) to spots, entrance fares to spots etc.   </p>
+
+<h5>
+<a id="2hubs" class="anchor" href="#2hubs" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.Hubs</h5>
+
+<p>The main travel endpoints. Think railway stations, airports, cruise docks, important bus stops etc. As mentioned mainly to provide approximate time, fare details to nearby spots.</p>
+
+<h5>
+<a id="3hotels" class="anchor" href="#3hotels" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.Hotels</h5>
+
+<p>These are places you can stay. For convenience, we group together normal hotels, resorts, clubs, beach houses etc into this category. We provide basic information, location, etc.</p>
+
+<h5>
+<a id="4restaurants" class="anchor" href="#4restaurants" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.Restaurants</h5>
+
+<p>Once again we plan to lump together normal restaurants, bakeries, chat shops, dhabas, famous roadside eateries etc into one category. If hotels have associated restaurants, they are not mentioned here.</p>
+
+<h5>
+<a id="5cities" class="anchor" href="#5cities" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.Cities</h5>
+
+<p>The nearest landing points to individual spots.</p>
+
+<h5>
+<a id="6states-and-countries" class="anchor" href="#6states-and-countries" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.States and Countries</h5>
+
+<p>Cities are organized in states and states in countries. Beyond this we do not have any information about states and countries.</p>
+
+<h5>
+<a id="7conveyance" class="anchor" href="#7conveyance" aria-hidden="true"><span class="octicon octicon-link"></span></a>7.Conveyance</h5>
+
+<p>These are the modes of transport found within a city and typically used to go to-from spots. These not only include conventional means like local trains, buses ,autorickshaws   and foot but also rarer means like horseback, cable cars, helicopters etc.</p>
+
+<p>The main purpose of these conveyances in our system is to provide O(time) and O(money) information about conveyance between a spot and a hub. Note that we assume that this information is symmetrical and considered only one way.  O(n) refers to the standard algorithmic notation of approximation. We give this information per conveyance type per source destination pair. </p>
+
+<p>This means we for example say that getting from the Agra railway station to Taj Mahal (or vice versa) will take 0.5 hrs and 50 Rs by Rickshaw. For the same source-destination pair we also state that it takes 10min by walking. These are approximate estimation that the user can use to decide their course of action.</p>
+
+<h2>
+<a id="system-information" class="anchor" href="#system-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>System Information</h2>
+
+<p>Engineering aspects of the system.</p>
+
+<p>We plan to gather data from the Internet by crawling. We plan to use sites like Trip Advisor etc for this search.</p>
+
+<p>We intend to build a website with a frontend for user interaction and a backend to control the underlying  relational database.</p>
+
+<h2>
+<a id="user-view" class="anchor" href="#user-view" aria-hidden="true"><span class="octicon octicon-link"></span></a>User View</h2>
+
+<p>What the user sees.</p>
+
+<p>A front end to extract information on spots by various parameters. They can retrieve by spot names. They could get a list of spots grouped by city, type etc. They could look into hotels, restaurants near a spot, in a city etc. They could look up approximate fares for hotels, entrance fees for spots. They could find different ways to get from an hub to a spot.</p>
+
+<p>These are just a few possible use case.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/mronian/Wanderer">Wanderer</a> is maintained by <a href="https://github.com/mronian">mronian</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
